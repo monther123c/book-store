@@ -90,3 +90,21 @@ a:hover{
   text-align: center;
 
 }
+.sel{
+  padding: 10px;
+  background: black;
+  color: aliceblue;
+  width: 300px;
+  font-size: 20px;
+  border-radius:5px ;
+}
+
+.sett{
+  width: 100%;
+  height: 80vh;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

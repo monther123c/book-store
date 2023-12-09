@@ -11,28 +11,26 @@ export const useAppContext =()=>{
     }
     return context;
 };
-
-const AppContextProvider=({childern})=>{
-    const [favorites,setFavorites]=useState([]);
-
-    const addToFavorites = (book) =>{
-        const oldFavorites =[...favorites];
-        const newFavorites=oldFavorites.concat(book);
-        setFavorites(newFavorites);
+const AppContextProvider = ({ children }) => {
+    const [favorites, setFavorites] = useState([]);
+  
+    const addToFavorites = (book) => {
+      const oldFavorites = [...favorites];
+      const newFavorites = oldFavorites.concat(book);
+      setFavorites(newFavorites);
     };
-
-     const removeFromFavorites=(id)=>{
-        const oldFavorites =[...favorites];
-        const newFavorites=oldFavorites.filter((book)=>book.id !==id);
-        setFavorites(newFavorites);
-
-     };
-
-
+  
+    const removeFromFavorites = (bookToRemove) => {
+      const updatedFavorites = favorites.filter((book) => book.id !== bookToRemove.id);
+      setFavorites(updatedFavorites);
+    };
+  
     return (
-        <AppContext.Provider value ={{favorites,addToFavorites,removeFromFavorites}}>
-            {childern}
-        </AppContext.Provider>
-    )
-};
-export default AppContextProvider;
+      <AppContext.Provider value={{ favorites, addToFavorites, removeFromFavorites }}>
+        {children}
+      </AppContext.Provider>
+    );
+  };
+  
+  export default AppContextProvider;
+  
